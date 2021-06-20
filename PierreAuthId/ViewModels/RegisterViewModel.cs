@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PierreAuthId.ViewModels
 {
-  public class RegisterViewModels
+  public class RegisterViewModel
   {
       [Required]
       [EmailAddress]
