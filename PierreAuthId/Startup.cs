@@ -30,16 +30,16 @@ namespace PierreAuthId
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<PierreAuthId>()
+        .AddEntityFrameworkStores<PierreAuthIdContext>()
         .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
       {
         options.Password.RequireDigit = false;
         options.Password.RequiredLength = 0;
-        options.Password.RequiredLowercase = false;
-        options.Password.RequiredNonAlphanumeric = false;
-        options.Password.RequiredUppercase = false;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireUppercase = false;
         options.Password.RequiredUniqueChars = 0;
       });
     }
@@ -52,7 +52,7 @@ namespace PierreAuthId
       app.UseAuthorization();
       app.UseEndpoints(routes =>
       {
-        routes.MapControllerRoutes("default", "{controller=Home}/{action=Index}/{id?}");
+        routes.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
       });
       app.UseStaticFiles();
       app.Run(async (context) =>

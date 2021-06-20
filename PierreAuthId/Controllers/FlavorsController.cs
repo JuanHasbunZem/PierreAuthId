@@ -1,7 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using PierreAuthId.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Security.Claims;
 using System.Linq;
 
 namespace PierreAuthId.Controllers
@@ -39,7 +44,7 @@ namespace PierreAuthId.Controllers
     {
       var thisTreats = _db.Treats
           .Include(Treats => Treats.JoinEntities)
-          .ThenInclude(join => join.Item)
+          .ThenInclude(join => join.Flavors)
           .FirstOrDefault(Treats => Treats.TreatsId == id);
       return View(thisTreats);
     }
