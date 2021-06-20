@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierreAuthId.Models;
+@model IEnumerable<PierreAuthId.Models.Flavors>
+
+<h1>Flavors for @User.Identity.Name</h1>
+
+@if (Model.Any())
+{
+  <ul>
+    @foreach (Flavors Flavors in Model)
+    {
+      <li>@Html.ActionLink($"{Flavors.Type}", "Details", new { id = Flavors.FlavorsId })</li>
+    }
+  </ul>
+} 
+else
+{
+  <h3>No Flavorss have been added yet!</h3>
+}
+<br>
+<p>@Html.ActionLink("Add new Flavors", "Create")</p><br>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

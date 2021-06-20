@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreAuthId.Models.Treats;
+
+<h2>Treats Detail</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Treat does not contain any Flavors</p>
+}
+else
+{
+  <h4>Flavors for the Treats:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Flavors.Type</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to Treats", "Index")</p>
+<p>@Html.ActionLink("Edit Treats", "Edit", new { id = Model.TreatsId })</p>
+<p>@Html.ActionLink("Delete Treats", "Delete", new { id = Model.TreatsId })</p>

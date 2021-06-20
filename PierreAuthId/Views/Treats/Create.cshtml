@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierreAuthId.Models.Treats
+
+<h4> Add a new Treat</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <input type="submit" value="Add new treat" />
+}
+<br>
+<p>@Html.ActionLink("Show all treats", "Index")</p>
