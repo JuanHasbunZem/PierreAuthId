@@ -54,6 +54,7 @@ namespace PierreAuthId.Controllers
     public ActionResult Edit(int id)
     {
       var thisTreats = _db.Treats.FirstOrDefault(Treats => Treats.TreatsId == id);
+      ViewBag.FlavorsId = new SelectList(_db.Flavors, "FlavorsId", "Type");
       return View(thisTreats);
     }
 

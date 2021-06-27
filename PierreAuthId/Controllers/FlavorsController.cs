@@ -81,7 +81,7 @@ namespace PierreAuthId.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddTreats(int id)
+    public ActionResult AddTreat(int id)
     {
       var thisFlavors = _db.Flavors.FirstOrDefault(Flavors => Flavors.FlavorsId == id);
       ViewBag.TreatsId = new SelectList(_db.Treats, "TreatsId", "Name");
@@ -89,7 +89,7 @@ namespace PierreAuthId.Controllers
     }
 
     [HttpPost]
-    public ActionResult AddTreats(Flavors flavors, int treatsId)
+    public ActionResult AddTreat(Flavors flavors, int treatsId)
     {
       if (treatsId != 0)
       {
