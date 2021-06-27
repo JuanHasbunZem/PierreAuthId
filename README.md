@@ -3,6 +3,7 @@
 #### A return to a previous project, Pierres Bakery, but modified to include a login requirement in order to create/update/delete any entires in the database. As well as a many to many relationship now.
 
 #### By Juan Hasbun
+#### Updated: 6/26/21
 
 ## Technologies Used
 
@@ -28,6 +29,8 @@
 
 For this program, the user will be prompted to navigate towards a page for treats or a page for flavors. Either page will display all currently saved data from an exported database. If there is no data at all, the page will display a message and inform the user they should add some.  Each page (treats or flavors) will also have links to allow the user to fill out a form to add either to the database.  A list of each is provided with links to view all the information for that specific flavor or treat.
 
+Note: The splash page the user enters the site on does not require authorization, but registeration/log-in is required for continuing on any other links.
+
 
 ## Setup/Installation Requirements
 
@@ -52,7 +55,7 @@ Note: `[firstname_lastname]`, `[user id]`, and `[password]` should be replaced w
 
 ## Known Bugs
 
-* Currently, when attempting to view the Flavors page while not logged in throws an error message - this does not occur when logged in.
+* ~~Currently, when attempting to view the Flavors page while not logged in throws an error message - this does not occur when logged in~~. Fixed: 6/26/21
 
 ## License
 
