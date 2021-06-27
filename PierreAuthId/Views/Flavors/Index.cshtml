@@ -3,24 +3,20 @@
 }
 
 @using PierreAuthId.Models;
-@model IEnumerable<PierreAuthId.Models.Flavors>
 
-<h1>Flavors for @User.Identity.Name</h1>
+<h1>Flavors</h1>
 
-@if (Model.Any())
+@if (@Model.Count == 0)
 {
-  <ul>
-    @foreach (Flavors Flavors in Model)
-    {
-      <li>@Html.ActionLink($"{Flavors.Type}", "Details", new { id = Flavors.FlavorsId })</li>
-    }
-  </ul>
+  <h3>No flavors have been added yet!</h3>
 } 
-else
-{
-  <h3>No Flavorss have been added yet!</h3>
-}
-<br>
-<p>@Html.ActionLink("Add new Flavors", "Create")</p><br>
 
+<ul>
+  @foreach(Flavors Flavors in Model)
+  {
+    <li>@Html.ActionLink($"{Flavors.Type}", "Details", new { id = Flavors.FlavorsId })</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Add new Flavors", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

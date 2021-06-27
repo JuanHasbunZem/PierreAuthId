@@ -2,7 +2,33 @@
   Layout = "_Layout";
 }
 
+@using PierreAuthId.Models;
 <h1>Welcome to the Pierre's Bakery!</h1>
+
+<h1>Your currently available Treats:</h1>
+@if (@ViewBag.TreatList.Count == 0)
+{
+  <h3> No Treats have been added yet!</h3>
+}
+<ul>
+  @foreach(Treats treats in @ViewBag.TreatList)
+  {
+    <li>@Html.ActionLink($"{treats.Name}", "Details", "Treats", new { id = treats.TreatsId })</li>
+  }
+</ul>
+<br>
+<h1>Your currently available Flavors:</h1>
+@if (@ViewBag.FlavorList.Count == 0)
+{
+  <h3> No Treats have been added yet!</h3>
+}
+<ul>
+  @foreach(Flavors flavors in @ViewBag.FlavorList)
+  {
+    <li>@Html.ActionLink($"{flavors.Type}", "Details", "Flavors", new { id = flavors.FlavorsId })</li>
+  }
+</ul>
+<br>
 
 <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p><br>
 <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p><br>
